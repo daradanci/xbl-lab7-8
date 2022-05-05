@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Вход</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <style type="text/css">
+        body {
+            background-color: rgba(28, 24, 39, 0.979);
+        }
+        
+        .box {
+            max-width: 370px;
+            /* margin-left: 500px; */
+            margin-top: -20px;
+            border-radius: 3px;
+        }
+        
+        p {
+            font-size: 20px;
+            margin-left: 80px;
+            margin-top: 20px;
+            color: #fdfdfd;
+        }
+    </style>
+</head>
+
+
+<body>
+    <form action="/users/old" method="post">
+        <p>
+            <label>Логин
+            <input type="text" name="nickname" value="<%=locals.nickname%>" />
+        </label>
+            <br>
+            <label>Пароль
+            <input type="text" name="password" value="<%=locals.password%>" />
+        </label>
+            <br>
+            <button type="submit">Ок</button>
+
+            <inperror>
+                <font color="red">
+                    <%=locals.errmes  %>
+                </font>
+            </inperror>
+        </p>
+    </form>
+    <form action="/users" method="get">
+        <button type="submit">Назад</button>
+    </form>
+
+    <br>
+    <script>
+    </script>
+
+</body>

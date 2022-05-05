@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dirty Deeds Done Dirt Cheap</title>
+    <!-- <link rel="stylesheet" href="./css/styles.css" /> -->
+    <style type="text/css">
+        body {
+            background-color: rgba(28, 24, 39, 0.979);
+        }
+        
+        h1 {
+            color: #fdfdfd;
+            padding: 10px;
+        }
+        
+        .box {
+            max-width: 370px;
+            /* margin-left: 500px; */
+            margin-top: -20px;
+            border-radius: 3px;
+        }
+        
+        p {
+            font-size: 20px;
+            margin-left: 80px;
+            margin-top: -20px;
+            color: #fdfdfd;
+        }
+    </style>
+
+
+</head>
+
+
+
+<body>
+
+
+    <div class="box1" id="heading">
+        <h1>
+            Hello,
+            <%=UserName%>!
+        </h1>
+    </div>
+    <div class="box">
+
+        <% for(var i=0;i<newListItem.length;i++) { %>
+            <form action="/users/delete/<%= UserId %>" method="post">
+                <div class="item">
+                    <div class="round">
+                        <input type="checkbox" name="checkbox" value="<%= newListItem[i]['Deed']%>" onChange="this.form.submit()" id="checkbox">
+                        <label for="checkbox"></label>
+                    </div>
+                    <p>
+                        <%= newListItem[i]['Deed'] %>
+                    </p>
+                    <br>
+                </div>
+            </form>
+            <% } %>
+                <form class="item" action="/users/add/<%= UserId %>" method="post">
+                    <input type="text" name="n" placeholder="new">
+                    <hr>
+                    <button id="b" type="submit"> <span id="s2"></span>+</button>
+                </form>
+
+                <form action="/users" method="get">
+                    <button type="submit">Назад</button>
+                </form>
+                <form action="/users/change/<%= UserId %>" method="post">
+                    <p>
+                        <input type="text" name="telchat" placeholder="new" value="<%= ChatId %>">
+                        <hr>
+                        <button id="b" type="submit"> <span id="s2"></span>Обновить</button>
+                    </p>
+                </form>
+</body>
+
+
+</html>
